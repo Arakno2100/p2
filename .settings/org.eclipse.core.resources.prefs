@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+encoding//src/it/unisa/control/AccountServlet.java=UTF-8
+encoding//src/it/unisa/control/CarrelloServlet.java=UTF-8
+encoding//src/it/unisa/control/CatalogoServlet.java=UTF-8
+encoding//src/it/unisa/control/CheckoutServlet.java=UTF-8
+encoding//src/it/unisa/model/ComposizioneBean.java=UTF-8
+encoding//src/it/unisa/model/ComposizioneDao.java=UTF-8
+encoding//src/it/unisa/model/IndirizzoSpedizioneBean.java=UTF-8
+encoding//src/it/unisa/model/IndirizzoSpedizioneDao.java=UTF-8
+encoding//src/it/unisa/model/ItemCarrello.java=UTF-8
+encoding//src/it/unisa/model/ProdottoBean.java=UTF-8
+encoding//src/it/unisa/model/ProdottoDao.java=UTF-8
