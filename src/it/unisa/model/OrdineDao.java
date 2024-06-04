@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -171,9 +173,12 @@ public class OrdineDao implements OrdineDaoInterfaccia {
 
 		String selectSQL = "SELECT * FROM " + OrdineDao.TABLE_NAME;
 
-		if (order != null && !order.equals("")) {
-			selectSQL += " ORDER BY ? " ;
-		}
+		// Elenco delle colonne consentite per l'ordinamento
+	    List<String> validOrders = Arrays.asList("ID_ORDINE", "EMAIL", "IMPORTO_TOTALE", "STATO", "DATA_ORDINE");
+
+	    if (order != null && validOrders.contains(order)) {
+	        selectSQL += " ORDER BY " + order;
+	    }
 
 		try {
 			connection = ds.getConnection();

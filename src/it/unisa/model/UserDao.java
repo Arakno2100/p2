@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -142,9 +144,12 @@ public class UserDao implements UserDaoInterfaccia {
 
 		String selectSQL = "SELECT * FROM " + UserDao.TABLE_NAME;
 
-		if (order != null && !order.equals("")) {
-			selectSQL += " ORDER BY " + order;
-		}
+		// Elenco delle colonne consentite per l'ordinamento
+	    List<String> validOrders = Arrays.asList("nome", "cognome", "data_nascita", "cap");
+
+	    if (order != null && validOrders.contains(order)) {
+	        selectSQL += " ORDER BY " + order;
+	    }
 
 		try {
 			connection = ds.getConnection();
