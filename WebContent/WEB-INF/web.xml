@@ -9,4 +9,28 @@
     <res-type>javax.sql.DataSource</res-type>
     <res-auth>Container</res-auth>
   </resource-ref>
+  
+  <!-- Configurazione per limitare l'accesso ai file sensibili -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Restricted Files</web-resource-name>
+            <url-pattern>/WEB-INF/*</url-pattern>
+            <url-pattern>/META-INF/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>NO_ACCESS</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <!-- Filtro per validazione dei percorsi richiesti -->
+    <filter>
+        <filter-name>PathTraversalFilter</filter-name>
+        <filter-class>it.unisa.control.PathTraversalFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>PathTraversalFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
 </web-app>
